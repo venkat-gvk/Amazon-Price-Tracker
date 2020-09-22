@@ -6,6 +6,9 @@ import time
 
 def init():
     options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_experimental_option("excludeSwitches", ["enable-logging"])
     return webdriver.Chrome('./chromedriver', options=options)
 
 
