@@ -1,4 +1,4 @@
-# Amazon-Price-Tracker
+# Amazon-Price-Scraper
 
 Enter the product you want to search for Eg: washing machine and it gets all the price, seller info and sorts from low to high
 
