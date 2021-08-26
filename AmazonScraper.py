@@ -133,6 +133,8 @@ class AmazonScraper:
 
         return links
 
+    # initiate scraper    
+
     def run(self):
         print('Starting Amazon Scraper')
         time.sleep(2)
