@@ -57,7 +57,7 @@ class AmazonScraper:
             return productSeller.text
 
         except NoSuchElementException:
-            print(f"can't find seller for the product with ID: {product_ID}")
+            print(f"Can't find seller for the product with ID: {product_ID}")
             return None
 
     def sortByPrice(self, products):
