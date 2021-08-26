@@ -4,7 +4,6 @@ Enter the product you want to search for Eg: washing machine and it gets all the
 
 # You need to have python3 installed on your machine
 
-First install python and everything from requirements.txt using pip
-then download chromium webdriver
+requires python3 and install everything from requirements.txt using pip
 
-Then try it...
+then download chromium webdriver version 92 or higher

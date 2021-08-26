@@ -34,9 +34,11 @@ class AmazonScraper:
             price = productPrice.text
 
             def convertPrice():
-                nonlocal price
+                nonlocal price    
+                res = price.split('₹')
+                if len(res) > 1:
+                    price = res[1].split(',')
 
-                price = price.split('₹ ')[1].split(',')
                 price = float(''.join(price))
 
             convertPrice()
@@ -45,6 +47,7 @@ class AmazonScraper:
 
         except NoSuchElementException:
             print(f"Can't find price for the product with ID: {product_ID}")
+            print("Skipping this product")
             return None
 
     def getProductSeller(self, product_ID):
@@ -117,14 +120,10 @@ class AmazonScraper:
 
     def getLinksforTheProduct(self):
         links = []
-
-        divElement = self.driver.find_elements_by_class_name('s-result-list')
+        results = self.driver.find_elements_by_xpath('//*[@id="search"]/div[1]/div[1]/div/span[3]/div[2]/*/div//div[2]/div/div/div[1]/h2/a');
         time.sleep(3)
 
         try:
-            results = divElement[0].find_elements_by_xpath(
-                '//div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/h2/a')
-
             for result in results:
                 link = result.get_attribute('href')
                 links.append(link)
